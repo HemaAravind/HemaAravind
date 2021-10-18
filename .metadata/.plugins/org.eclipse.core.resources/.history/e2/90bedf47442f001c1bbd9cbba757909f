@@ -1,0 +1,20 @@
+package EmailValidation.Email;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EnableGmailAccess {
+	
+	
+	static WebDriver driver;
+	
+	
+	
+	
+	public static void enableAccess() {
+		driver = new ChromeDriver();
+		driver.get("https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=453887065848-j74s2cpvskud3n3pmoriljtle7b2mrpq.apps.googleusercontent.com&redirect_uri=http://localhost:9999/Callback&response_type=code&scope=https://mail.google.com/");
+		
+	}
+
+}

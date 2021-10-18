@@ -1,0 +1,17 @@
+package tests;
+
+import org.testng.annotations.Test;
+
+import frameworkComponents.TestBase;
+import pages.GmailLoginPage;
+
+public class TestGmail extends TestBase {
+	
+	 GmailLoginPage login = new GmailLoginPage(driver);
+	@Test
+	public void testLogin() {
+		
+		login.EnterEmail();
+	}
+
+}

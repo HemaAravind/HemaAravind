@@ -1,0 +1,36 @@
+package frameworkComponents;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+
+
+public class TestBase {
+	public static WebDriver driver ;
+	
+	@BeforeSuite
+	
+	public void testInitialize() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.get("https://www.mail.yahoo.com");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2000));
+	}
+	
+	
+	@AfterSuite
+	
+	public void testCleanup() {
+		//driver.quit();
+	}
+
+}

@@ -1,0 +1,31 @@
+package EmailValidation.Email;
+
+import java.util.HashMap;
+
+import org.testng.annotations.Test;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+{
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void testGmail()
+    
+    {
+    	GMail gm = new GMail();
+    	 HashMap<String, String> hm = gm.getGmailData("subject:Test");
+	        System.out.println(hm.get("subject"));
+	        System.out.println("=================");
+	        System.out.println(hm.get("body"));
+	        
+	        System.out.println("=================");
+	        boolean exist = gm.isMailExist("new link");
+	        
+	      gm.DeleteCredsFile();
+
+    }
+}

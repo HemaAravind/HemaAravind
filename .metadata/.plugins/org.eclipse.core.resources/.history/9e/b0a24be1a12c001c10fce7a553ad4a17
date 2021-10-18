@@ -1,0 +1,28 @@
+package frameworkComponents;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+
+
+
+public class TestBase {
+	public static WebDriver driver ;
+	
+	@BeforeSuite
+	
+	public void testInitialize() {
+		driver = new ChromeDriver();
+		driver.get("https://www.gmail.com");
+	}
+	
+	
+	@AfterSuite
+	
+	public void testCleanup() {
+		
+	}
+
+}

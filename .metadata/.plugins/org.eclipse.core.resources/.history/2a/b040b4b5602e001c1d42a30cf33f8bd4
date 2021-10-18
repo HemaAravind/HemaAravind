@@ -1,0 +1,19 @@
+package tests;
+
+import org.apache.commons.codec.binary.Base64;
+import org.testng.annotations.Test;
+
+import frameworkComponents.TestBase;
+import pages.GmailLoginPage;
+
+public class TestGmail extends TestBase {
+	
+	 
+	@Test
+	public void testLogin() {
+		
+		GmailLoginPage login = new GmailLoginPage(driver);
+		login.EnterEmail();
+	}
+
+}

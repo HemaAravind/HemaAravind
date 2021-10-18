@@ -1,0 +1,43 @@
+package pages;
+
+import org.apache.commons.codec.binary.Base64;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class GmailLoginPage {
+	
+	WebDriver driver;
+	
+	public GmailLoginPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id="identifierId")
+	static WebElement loginID;
+
+	@FindBy(id="identifierNext")
+	static WebElement nextButton;
+	
+	@FindBy(name="password")
+	static WebElement password;
+	
+	@FindBy(id="passwordNext")
+	static WebElement passwordNextButton;
+	
+	
+	
+	public void EnterEmail() {
+			
+       String str = "QW5hbmRoaUAxMjM="; byte[] encodedString = str.getBytes();
+	  // Decode data on other side, by processing encoded data 
+	  byte[] decodedString= Base64.decodeBase64(encodedString); 
+			 
+		loginID.sendKeys("anandhi.sadagopal@gmail.com");
+		nextButton.click();
+		password.sendKeys(new String(decodedString));
+	}
+	
+}

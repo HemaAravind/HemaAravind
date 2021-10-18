@@ -1,0 +1,22 @@
+Email for Iteration 1 - anandhi.sadagopal@gmail.com
+Email for Iteration 2 - hema.db91@gmail.com
+
+
+Configuration:
+
+A consent has to be provided by the user inorder to access the mail in the default browser opened by the script .
+Select the email ID's mentioned above in the browser opened
+Click continue on the consecutive screens so that the required consent is provided for the respective Email ID's
+
+
+Data:
+There are two fields provided in the inputdatasheet,
+CredentialFile  - Name of the credential file that was generated for each of the mail id's are provided here . They are present in the src/main/java/resources folder
+Subject - Provide the subject of the mail that has to be verified in each of the mail id's. 
+
+
+Step1 needs to done manually as we delete the StoredCredentials file that will be generated after accessing the mailID once . This is done to avoid the mailID in 
+second iteration referencing the 'Stored Credentials' generated for the mail ID in first iteration
+
+If only one mailID is used and the 'Stored Credentials' file is not deleted , then Step1 is an one time configuration . Then the execution will be done without asking for this
+configuration .  

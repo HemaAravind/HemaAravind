@@ -1,0 +1,25 @@
+package tests;
+
+import org.apache.commons.codec.binary.Base64;
+import org.testng.annotations.Test;
+
+import frameworkComponents.TestBase;
+import pages.GmailLoginPage;
+
+public class TestGmail extends TestBase {
+	
+	 
+	@Test
+	public void testLogin() {
+		String str = "Anandhi@123"; byte[] encodedString =
+				  Base64.encodeBase64(str.getBytes()); System.out.println("encoded value is " +
+				  new String(encodedString));
+				  
+				  // Decode data on other side, by processing encoded data 
+				  byte[] decodedString= Base64.decodeBase64(encodedString); System.out.println("Decoded value is "
+				  + new String(decodedString));
+		GmailLoginPage login = new GmailLoginPage(driver);
+		login.EnterEmail();
+	}
+
+}

@@ -1,0 +1,15 @@
+package tests;
+
+import org.testng.annotations.Test;
+
+import frameworkComponents.TestBase;
+
+public class TestGmail extends TestBase {
+	
+	@Test
+	public void testLogin() {
+		
+		System.out.println("Logged In successfully");
+	}
+
+}

@@ -1,0 +1,63 @@
+package EmailValidation.Email;
+
+import java.io.File;
+import java.util.HashMap;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+{
+    
+    @Test(dataProvider = "getData")
+    
+    public void testGmail()
+    
+    {
+    	 HashMap<String, String> hm = GMail.getGmailData("subject:Test");
+	        System.out.println(hm.get("subject"));
+	        System.out.println("=================");
+	        System.out.println(hm.get("body"));
+	        
+	        GMail.DeleteCredsFile();
+
+    }
+    
+    
+    @DataProvider(name ="getData")
+    public static Object[][] getData() {
+    	
+    	Fillo f =new Fillo();
+    	try {
+			Connection conn = f.getConnection(
+					System.getProperty("user.dir") +
+			        File.separator + "src" +
+			         File.separator + "main" +
+			         File.separator + "java" + 
+			         File.separator + "Data" +
+			         File.separator + "InputDataSheet.xlsx");
+			
+			String strQuery="Select * from Sheet1";
+			Recordset recordset=conn.executeQuery(strQuery);
+			 
+			while(recordset.next()){
+				recordset.getField("Details");
+			}
+			 
+			recordset.close();
+			conn.close();
+
+		} catch (FilloException e) {
+			System.out.println(e.getLocalizedMessage());
+		}  
+    	
+    }
+}
